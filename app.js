@@ -3,24 +3,24 @@
  */
 
 'use strict'
-var compress = require('koa-compress');
-var logger = require('koa-logger');
-var serve = require('koa-static');
-var _ = require('koa-route');
-var router = require('koa-router');
-var json = require('koa-json');
-var mount = require('koa-mount');
-var sendfile = require('koa-sendfile');
-var session = require('koa-generic-session');
-var bodyparser = require('koa-bodyparser');
-var koa = require('koa');
-var path = require('path');
+let compress = require('koa-compress');
+let logger = require('koa-logger');
+let serve = require('koa-static');
+let _ = require('koa-route');
+let router = require('koa-router');
+let json = require('koa-json');
+let mount = require('koa-mount');
+let sendfile = require('koa-sendfile');
+let session = require('koa-generic-session');
+let bodyparser = require('koa-bodyparser');
+let koa = require('koa');
+let path = require('path');
 
 const common = require('./controllers/main');
-var auth = require('./controllers/login');
+let auth = require('./controllers/login');
 
 
-var app = module.exports = koa();
+let app = module.exports = koa();
 
 app.keys = ['es_building', 'Front_end'];
 app.use(bodyparser());

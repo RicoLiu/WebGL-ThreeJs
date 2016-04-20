@@ -3,6 +3,7 @@
  */
 
 var gulp = require("gulp");
+var babel = require("gulp-babel");
 var ngAnnotate = require('gulp-ng-annotate');
 var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
@@ -28,27 +29,30 @@ var path = {
   }
 };
 
-gulp.task('js:compile', function () {
-  gulp.src(path.js)
+gulp.task('js:compile', () => {
+  return gulp.src(path.js)
     .pipe(plumber())
     .pipe(ngAnnotate())
     .pipe(concat('app.js'))
-    .pipe(gulp.dest('./public/javascripts/'))
-    .pipe( webpack( require( "./webpack.config.js" ) ) )
-    .pipe(gulp.dest('./public/javascripts/'));
-});
-
-gulp.task('js:minifyCompile', function () {
-  gulp.src(path.js)
+    .pipe(gulp.dest('./public/javascripts'))
+    .pipe(babel({
+      presets: ['es2015']
+    }))
+    .pipe(gulp.dest('./public/javascripts'));
+})
+gulp.task('js:minifyCompile', () => {
+  return gulp.src(path.js)
     .pipe(plumber())
     .pipe(ngAnnotate())
     .pipe(concat('app.min.js'))
-    .pipe(gulp.dest('./public/javascripts/'))
-    .pipe( webpack( require( "./webpack.config.minify.js" ) ) )
-    .pipe(gulp.dest('./public/javascripts/'))
+    .pipe(gulp.dest('./public/javascripts'))
+    .pipe(babel({
+      presets: ['es2015']
+    }))
+    .pipe(gulp.dest('./public/javascripts'))
     .pipe(uglify())
-    .pipe(gulp.dest('./public/javascripts/'));
-});
+    .pipe(gulp.dest('./public/javascripts'));
+})
 
 gulp.task('css:compile', function () {
   return gulp.src(path.less)

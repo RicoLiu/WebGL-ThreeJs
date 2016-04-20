@@ -41,6 +41,15 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpP
         }
       }
     })
+    .state('error',{
+      url: '/error',
+      views: {
+        'root@': {
+          templateUrl: "/partial/main/error.html",
+          controller: 'errorCtrl'
+        }
+      }
+    })
     .state('main',{
       views: {
         'root@': {
@@ -49,6 +58,19 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpP
         }
       }
     })
+    .state('main.device',{
+      url: '/device',
+      views: {
+        'content': {
+          templateUrl: "/partial/pages/dev_ctrl/singleDev.html",
+          controller: 'singleDevCtrl'
+        }
+      },
+      data: {
+        title: 'device'
+      }
+    })
+
 
 
 
