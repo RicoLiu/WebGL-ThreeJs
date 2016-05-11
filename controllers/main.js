@@ -25,10 +25,10 @@ module.exports = {
       }
 
       return request.apply(request, arguments).then((res) => {
-        debug('sapphire:response')(JSON.stringify(res))
+        debug('es_building:response')(JSON.stringify(res))
         if(!(res.headers === undefined || res.headers.token === undefined)){
           this.session.token = R.path(['headers', 'token'], res)
-          debug('sapphire:token')(this.session.token)
+          debug('es_building:token')(this.session.token)
         }
         if (2 === Math.floor(res.statusCode / 100)) {
           this.cookies.set('auth', 'pass', {
