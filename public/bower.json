@@ -39,7 +39,8 @@
     "nvd3": "~1.8.1",
     "paho-mqtt": "*",
     "selectize": "~0.12.1",
-    "ui-bootstrap": "~1.2.2"
+    "ui-bootstrap": "~1.2.2",
+    "three.js": "threejs#*"
   },
   "resolutions": {
     "nvd3": "~1.8.1",
