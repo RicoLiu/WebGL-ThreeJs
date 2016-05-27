@@ -56,6 +56,14 @@ app.controller('loginCtrl', ['$scope',  '$rootScope', '$state', '$http', 'toaste
   var width;
   var height;
 
+  initThree();
+  initCamera();
+  initScene();
+  initLight();
+  initObject();
+  createUI();
+  animation();
+
 
 
   function initThree () {
@@ -67,6 +75,8 @@ app.controller('loginCtrl', ['$scope',  '$rootScope', '$state', '$http', 'toaste
     renderer.setSize(width, height);
     document.getElementById('canvas-frame').appendChild(renderer.domElement);
     renderer.setClearColor(0xffffff, 1.0);
+
+    window.addEventListener('resize', onWindowResize, false)
   }
 
   function initCamera () {
@@ -267,21 +277,12 @@ app.controller('loginCtrl', ['$scope',  '$rootScope', '$state', '$http', 'toaste
     }
   }
 
+  function onWindowResize () {
+    camera.aspect = window.innerWidth / window.innerHeight
+    camera.updateProjectionMatrix()
 
-    initThree();
-    initCamera();
-    initScene();
-    initLight();
-    initObject();
-    createUI();
-    animation();
-
-
-
-
-
-
-
+    renderer.setSize( window.innerWidth, window.innerHeight )
+  }
 
 }]);
 
