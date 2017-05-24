@@ -1,15 +1,10 @@
-/**
- * Created by famer.me on 16-4-19.
- */
 
 app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', 'JSONFormatterConfigProvider', function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, JSONFormatterConfigProvider) {
-  //
   // 在请求中发送 X-Requested-With 头，以向服务器声明这是一个来自xhr的请求
   $httpProvider.defaults.headers.common = {
     'X-Requested-With': 'XMLHttpRequest'
   };
 
-  //
   // 默认启用html5模式，使用history api
   $locationProvider.html5Mode({
     enabled: true,
@@ -31,6 +26,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpP
   $httpProvider.defaults.headers.common["If-Modified-Since"] = "0";
   $urlRouterProvider
     .otherwise('/login');
+  //路由配置
   $stateProvider
     .state('login',{
       url: '/login',
@@ -62,12 +58,12 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpP
       url: '/device',
       views: {
         'content': {
-          templateUrl: "/partial/pages/dev_ctrl/singleDev.html",
-          controller: 'singleDevCtrl'
+          templateUrl: "/partial/pages/components.html",
+          controller: 'componentsCtrl'
         }
       },
       data: {
-        title: 'device'
+        title: 'components'
       }
     })
 

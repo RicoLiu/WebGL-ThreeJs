@@ -1,2 +1,27 @@
+<div class="auth-block">
+    <h1 class="login-title">Sign in</h1>
+    <br/><br/>
 
-<h1>Hello {{name}}</h1>
+    <form class="form-horizontal" ng-submit="submit()">
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-4 control-label">Email</label>
+
+        <div class="col-sm-4">
+          <input type="email" class="form-control" id="inputEmail3" ng-model="email" placeholder="Email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-4 control-label">Password</label>
+
+        <div class="col-sm-4">
+          <input type="password" class="form-control" id="inputPassword3" ng-model="password" placeholder="Password">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-8">
+          <button type="submit" class="btn btn-default btn-auth">Sign in</button>
+          <a href class="forgot-pass">Forgot password?</a>
+        </div>
+      </div>
+    </form>
+  </div>
