@@ -1,6 +1,6 @@
 {
-  "name": "es_building_front_end",
-  "homepage": "https://github.com/RicoLiu/es_building_front_end",
+  "name": "front_end",
+  "homepage": "https://github.com/RicoLiu/WebGL-ThreeJs",
   "authors": [
     "RicoLiu <2869183609@qq.com>"
   ],
@@ -30,22 +30,16 @@
     "blueimp-md5": "JavaScript-MD5#~1.1.1",
     "bootstrap": "~3.3.6",
     "bootstrap-big-grid": "~0.2.0",
-    "d3": "~3.5.6",
     "font-awesome": "~4.5.0",
     "json-formatter": "~0.5.0",
     "marked": "~0.3.5",
     "ng-bs-daterangepicker": "^0.0.5",
     "nprogress": "~0.2.0",
-    "nvd3": "~1.8.1",
-    "paho-mqtt": "*",
     "selectize": "~0.12.1",
-    "ui-bootstrap": "~1.2.2",
-    "three.js": "threejs#*"
+    "ui-bootstrap": "~1.2.2"
   },
   "resolutions": {
-    "nvd3": "~1.8.1",
     "angularjs": "~1.5.0",
-    "d3": "^3.5.6",
     "angular": "~1.5.0"
   }
 }

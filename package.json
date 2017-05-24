@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "node --harmony_destructuring app.js",
+    "watch": "gulp watch --harmony_destructuring",
+    "start": "node app.js",
     "test": "gulp test --harmony_destructuring"
   },
   "dependencies": {
