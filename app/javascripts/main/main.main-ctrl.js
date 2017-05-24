@@ -3,7 +3,11 @@
  */
 
 app.controller('loginCtrl', ['$scope',  '$rootScope', '$state', '$http', 'toaster', function ($scope, $rootScope, $state, $http, toaster) {
-
+  $scope.name = 'world';
+  
+    console = {log: _ => {return _ + ' world'}} 
+  
+  console.log('my')
 }]);
 
 app.controller('mainCtrl', ['$scope',  '$rootScope', '$state', '$cookies', function ($scope, $rootScope, $state, $cookies) {
