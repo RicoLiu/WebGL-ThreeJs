@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "build": "gulp default --harmony_destructuring",
     "start": "node --harmony_destructuring app.js",
     "test": "gulp test --harmony_destructuring"
   },

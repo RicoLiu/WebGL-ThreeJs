@@ -10,11 +10,11 @@
     $ cd public/
     $ bower install
     $ cd ../
-    $ gulp
+    $ gulp || npm run build
     $ npm start
 
 # 生产环境
 
     $ npm install -g pm2
-    $ gulp
+    $ gulp || npm run build
     $ pm2 start app.js -i 2 -n <app name>
