@@ -1,6 +1,3 @@
-/**
- * Created by famer.me on 16-4-19.
- */
 
 "use strict";
 const request = require('co-request')
@@ -36,6 +33,11 @@ module.exports = {
             path : '/',
             httpOnly: false
           });
+        } else {
+          //统一处理错误码
+          switch (res.headers.resultcode) {
+
+          }
         }
         return res;
       })

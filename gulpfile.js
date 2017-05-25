@@ -1,6 +1,3 @@
-/**
- * Created by famer.me on 16-4-19.
- */
 
 var gulp = require("gulp");
 var babel = require("gulp-babel");

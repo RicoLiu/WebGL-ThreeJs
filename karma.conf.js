@@ -1,6 +1,3 @@
-/**
- * Created by famer.me on 16-4-19.
- */
 
 // Karma configuration
 // Generated on Tue Aug 04 2015 11:40:19 GMT+0800 (CST)

@@ -1,5 +1,7 @@
 
-# angular.js 
+# Angular.js 
+
+# 开发环境
 
     $ git clone <this repo>
     $ cd <this repo>
@@ -10,3 +12,8 @@
     $ cd ../
     $ gulp
     $ npm start
+
+# 生产环境
+    $ npm install -g pm2
+    $ gulp
+    $ pm2 start app.js -i 2 -n <app name>

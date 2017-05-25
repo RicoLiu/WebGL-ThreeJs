@@ -1,6 +1,3 @@
-/**
- * Created by famer.me on 16-4-19.
- */
 
 var app = angular.module('app', [ 'ui.router', 'jsonFormatter', 'ui.bootstrap', 'ngBootstrap', 'ngCookies', 'toaster' ]);
 

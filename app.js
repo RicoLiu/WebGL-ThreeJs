@@ -1,6 +1,3 @@
-/**
- * Created by famer.me on 16-4-19.
- */
 
 'use strict'
 let compress = require('koa-compress');
