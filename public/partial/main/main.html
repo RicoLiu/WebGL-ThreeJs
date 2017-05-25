@@ -7,7 +7,7 @@
     <!-- Logo -->
     <a class="logo" style="background-color:#d73925;text-decoration: none">
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg" style="background-color:#d73925"><b style="color:#ffffff">管理系统</b></span>
+      <span class="logo-lg" style="background-color:#d73925"><b style="color:#ffffff">后台管理系统</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" style="background-color:#dd4b39" role="navigation">
@@ -60,6 +60,224 @@
                   <i class="treeview-menu-icon fa"
                      ng-class="{true: 'fa-circle', false: 'fa-circle-o'}[aiDevice]"></i>
                   AI配置
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="treeview">
+            <a ng-click="historyData()">
+              <span class="treeview-icon pull-right">
+                <i class="pull-right glyphicon"
+                   ng-class="{true: 'glyphicon-chevron-up', false: 'glyphicon-chevron-down'}[dataSet]"></i>
+              </span>
+              <span>能源管理</span>
+            </a>
+            <ul class="treeview-menu" ng-show="dataSet">
+              <li ng-if="!permission" ui-sref-active="index-list-active">
+                <a ui-sref="main.collectManage.detail" ng-click="collectionManage()">
+                  <i class="treeview-menu-icon fa" ng-class="{true: 'fa-circle', false: 'fa-circle-o'}[colManage]"></i>
+                  四表管理
+                </a>
+              </li>
+              <li ui-sref-active="index-list-active">
+                <a ui-sref="main.collect.detail({areaId: -1})" ng-click="collectionShow()">
+                  <i class="treeview-menu-icon fa" ng-class="{true: 'fa-circle', false: 'fa-circle-o'}[detailData]"></i>
+                  能源采集
+                </a>
+              </li>
+              <li ui-sref-active="index-list-active">
+                <a ui-sref="main.intelligence" ng-click="intelShow()">
+                  <i class="treeview-menu-icon fa"
+                     ng-class="{true: 'fa-circle', false: 'fa-circle-o'}[statisticsData]"></i>
+                  能源计量
+                </a>
+              </li>
+              <li ng-if="!permission" ui-sref-active="index-list-active">
+                <a ui-sref="main.feeCharged" ng-click="feeShow()">
+                  <i class="treeview-menu-icon fa"
+                     ng-class="{true: 'fa-circle', false: 'fa-circle-o'}[feeCharge]"></i>
+                  费控管理
+                </a>
+              </li>
+              <li ui-sref-active="index-list-active">
+                <a ui-sref="main.singleTarget" ng-click="singleTargetShow()">
+                  <i class="treeview-menu-icon fa"
+                     ng-class="{true: 'fa-circle', false: 'fa-circle-o'}[singleTarget]"></i>
+                  随机召测
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="treeview">
+            <a ng-click="buildingCtrl()">
+              <span class="treeview-icon pull-right">
+                <i class="pull-right glyphicon"
+                   ng-class="{true: 'glyphicon-chevron-up', false: 'glyphicon-chevron-down'}[building]"></i>
+              </span>
+              <span>楼宇自控</span>
+            </a>
+            <ul class="treeview-menu" ng-show="building">
+              <li ui-sref-active="index-list-active">
+                <a ui-sref="main.condition" ng-click="conditionShow()">
+                  <i class="treeview-menu-icon fa"
+                     ng-class="{true: 'fa-circle', false: 'fa-circle-o'}[conditioner]"></i>
+                  空调管理
+                </a>
+              </li>
+              <li ui-sref-active="index-list-active">
+                <a ui-sref="main.heating" ng-click="heatingShow()">
+                  <i class="treeview-menu-icon fa"
+                     ng-class="{true: 'fa-circle', false: 'fa-circle-o'}[heating]"></i>
+                  采暖管理
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="treeview">
+            <a ng-click="monitor()">
+              <span class="treeview-icon pull-right">
+                <i class="pull-right glyphicon"
+                   ng-class="{true: 'glyphicon-chevron-up', false: 'glyphicon-chevron-down'}[monitorSet]"></i>
+              </span>
+              <span>实时监控</span>
+            </a>
+            <ul class="treeview-menu" ng-show="monitorSet">
+              <li ui-sref-active="index-list-active">
+                <a ui-sref="main.intelligentRoom"
+                   ng-click="monitorShow()">
+                  <i class="treeview-menu-icon fa" ng-class="{true: 'fa-circle', false: 'fa-circle-o'}[sceneData]"></i>
+                  智能房间
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li ng-if="!permission" class="treeview">
+            <a ng-click="deviceDefend()">
+              <span class="treeview-icon pull-right">
+                <i class="pull-right glyphicon"
+                   ng-class="{true: 'glyphicon-chevron-up', false: 'glyphicon-chevron-down'}[devSet]"></i>
+              </span>
+              <span>基础功能</span>
+            </a>
+            <ul class="treeview-menu" ng-show="devSet">
+              <li ui-sref-active="index-list-active">
+                <a ui-sref="main.areaManage.detail"
+                   ng-click="areaManageShow()">
+                  <i class="treeview-menu-icon fa" ng-class="{true: 'fa-circle', false: 'fa-circle-o'}[areaManage]"></i>
+                  区域管理
+                </a>
+              </li>
+              <li ui-sref-active="index-list-active">
+                <a ui-sref="main.deviceManage.detail"
+                   ng-click="deviceManageShow()">
+                  <i class="treeview-menu-icon fa"
+                     ng-class="{true: 'fa-circle', false: 'fa-circle-o'}[deviceManage]"></i>
+                  设备管理
+                </a>
+              </li>
+              <li ui-sref-active="index-list-active">
+                <a ui-sref="main.virtualManage.detail"
+                   ng-click="virtualDeviceManageShow()">
+                  <i class="treeview-menu-icon fa"
+                     ng-class="{true: 'fa-circle', false: 'fa-circle-o'}[virtualDeviceManage]"></i>
+                  虚拟设备管理
+                </a>
+              </li>
+              <li ui-sref-active="index-list-active">
+                <a ui-sref="main.gateway.detail" ng-click="gatewayShow()">
+                  <i class="treeview-menu-icon fa"
+                     ng-class="{true: 'fa-circle', false: 'fa-circle-o'}[intelGateway]"></i>
+                  智能网关
+                </a>
+              </li>
+              <li ui-sref-active="index-list-active">
+                <a ui-sref="main.replace.detail" ng-click="repalceShow()">
+                  <i class="treeview-menu-icon fa"
+                     ng-class="{true: 'fa-circle', false: 'fa-circle-o'}[repalceManage]"></i>
+                  设备替换
+                </a>
+              </li>
+              <li ui-sref-active="index-list-active">
+                <a ui-sref="main.upgrade.detail" ng-click="upgradeShow()">
+                  <i class="treeview-menu-icon fa"
+                     ng-class="{true: 'fa-circle', false: 'fa-circle-o'}[upgradeManage]"></i>
+                  升级管理
+                </a>
+              </li>
+              <li ui-sref-active="index-list-active">
+                <a ui-sref="main.user.detail" ng-click="credentialShow()">
+                  <i class="treeview-menu-icon fa" ng-class="{true: 'fa-circle', false: 'fa-circle-o'}[credential]"></i>
+                  权限管理
+                </a>
+              </li>
+              <!--<li ng-if="!operator" class="treeview">-->
+              <!--<a ui-sref="main.user" ng-click="credentialShow()">-->
+              <!--<i class="treeview-menu-icon fa" ng-class="{true: 'fa-circle', false: 'fa-circle-o'}[credential]"></i>-->
+              <!--权限管理-->
+              <!--</a>-->
+              <!--</li>-->
+            </ul>
+          </li>
+
+          <li class="treeview">
+            <a ng-click="configData()">
+              <span class="treeview-icon pull-right">
+                <i class="pull-right glyphicon"
+                   ng-class="{true: 'glyphicon-chevron-up', false: 'glyphicon-chevron-down'}[configSet]"></i>
+              </span>
+              <span>配置管理</span>
+            </a>
+            <ul class="treeview-menu" ng-show="configSet">
+              <li ui-sref-active="index-list-active">
+                <a ui-sref="main.deviceConfig" ng-click="deviceConfigShow()">
+                  <i class="treeview-menu-icon fa"
+                     ng-class="{true: 'fa-circle', false: 'fa-circle-o'}[deviceConfig]"></i>
+                  设备配置
+                </a>
+              </li>
+              <li ui-sref-active="index-list-active">
+                <a ui-sref="main.profileIndex.detail" ng-click="profileShow()">
+                  <i class="treeview-menu-icon fa" ng-class="{true: 'fa-circle', false: 'fa-circle-o'}[profile]"></i>
+                  情景模式
+                </a>
+              </li>
+              <li ng-class="{true: 'index-list-active', false: ''}[time]">
+                <a ui-sref="main.timedTask.add" ng-click="timeShow()">
+                  <i class="treeview-menu-icon fa"
+                     ng-class="{true: 'fa-circle', false: 'fa-circle-o'}[time]"></i>
+                  定时任务
+                </a>
+              </li>
+              <li ng-class="{true: 'index-list-active', false: ''}[auto]">
+                <a ui-sref="main.autoCtrl.add" ng-click="autoShow()">
+                  <i class="treeview-menu-icon fa"
+                     ng-class="{true: 'fa-circle', false: 'fa-circle-o'}[auto]"></i>
+                  自动控制
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li ng-if="!permission" class="treeview">
+            <a ng-click="logData()">
+          <span class="treeview-icon pull-right">
+          <i class="pull-right glyphicon"
+             ng-class="{true: 'glyphicon-chevron-up', false: 'glyphicon-chevron-down'}[logSet]"></i>
+          </span>
+              <span>日志管理</span>
+            </a>
+            <ul class="treeview-menu" ng-show="logSet">
+              <li ui-sref-active="index-list-active">
+                <a ui-sref="main.operationLog" ng-click="operationShow()">
+                  <i class="treeview-menu-icon fa"
+                     ng-class="{true: 'fa-circle', false: 'fa-circle-o'}[operationLog]"></i>
+                  操作日志
+                </a>
+              </li>
+              <li class="treeview">
+                <a ui-sref="main.deviceLog" ng-click="deviceLogShow()">
+                  <i class="treeview-menu-icon fa" ng-class="{true: 'fa-circle', false: 'fa-circle-o'}[deviceLog]"></i>
+                  设备日志
                 </a>
               </li>
             </ul>

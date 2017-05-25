@@ -2,7 +2,7 @@
 app.controller('loginCtrl', ['$scope',  '$rootScope', '$state', '$http', 'toaster', function ($scope, $rootScope, $state, $http, toaster) {
   $scope.submit = function () {
     console.log('coming--------');
-    $state.go('main');
+    $state.go('main.device');
   }
   
 }]);

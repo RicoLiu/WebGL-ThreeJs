@@ -1,0 +1,236 @@
+.main-content{
+  background-color: #ecf0f5;
+}
+.left-slider{
+  height: 100%;
+  width: 230px;
+  padding: 0 15px;
+  display: inline-block;
+  float: left
+}
+.left{
+  height: 100%;
+  width: 230px;
+  display: inline-block;
+  float: left
+}
+.left-sm {
+  //height: 100%;
+  width: 62px;
+  padding: 0 15px;
+  display: inline-block;
+  float: left;
+}
+.middle{
+  height: 100%;
+  overflow: auto;
+}
+
+.main-sidebar {
+  background-color: #222d32;
+  min-height: 100%;
+  padding-top: 15px;
+  width: 230px;
+  z-index: 810;
+  transition: transform .3s ease-in-out,width .3s ease-in-out;
+  & .sidebar{
+    padding-bottom: 10px;
+    & .user-panel{
+      white-space: nowrap;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      padding: 10px;
+      &:before,
+      &:after {
+        content: " ";
+        display: table;
+      }
+      &:after {
+        clear: both;
+      }
+      & > .image {
+        color: #ffffff;
+        font-size: 18px;
+      }
+      & > .info {
+        padding: 5px 5px 5px 15px;
+        line-height: 1;
+        position: absolute;
+        left: 55px;
+        & > p {
+          color: #ffffff;
+          font-weight: 600;
+          margin-bottom: 9px;
+        }
+        & > a {
+          text-decoration: none;
+          padding-right: 5px;
+          margin-top: 3px;
+          font-size: 11px;
+        }
+      }
+    }
+    & .sidebar-menu{
+      white-space: nowrap;
+      overflow: hidden;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      & > li {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        & > a {
+          padding: 12px 5px 12px 15px;
+          display: block;
+          color: #ffffff;
+          background-color: #1a2226;
+          text-decoration: none;
+          &:hover,
+          &:focus,
+          &:active {
+            color: #ffffff;
+          }
+        }
+        & .treeview-icon {
+          color: rgba(255, 255, 255, 0.8);
+          margin-right: 15px;
+
+        }
+      }
+      & .treeview-menu{
+        list-style: none;
+        margin: 0;
+        padding-left: 20px;
+        & > li {
+          position: relative;
+          margin: 0;
+          padding: 0;
+          & > a {
+            padding: 12px 5px 12px 15px;
+            display: block;
+            color: rgba(255, 255, 255,0.5);
+            text-decoration: none;
+            &:hover,
+            &:focus,
+            &:active {
+              color: #ffffff;
+            }
+          }
+          & .treeview-menu-icon {
+            color: #3c8dbc;
+            margin-right: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+.index-list-active{
+  color: #ffffff;
+  & a{
+    color: #ffffff !important;
+  }
+}
+.my-modal-body{
+  margin-bottom: -20px;
+  padding-bottom: 0;
+}
+
+.collapse-nav {
+  & a{
+    width: 230px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: 13px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    transition-duration: .3s;
+    outline: none;
+  }
+  & a:hover {
+    color: #ffffff;
+  }
+}
+.collapse-nav-sm {
+  & a{
+    width: 62px;
+    position: fixed;
+    height: 40px;
+    bottom: 0;
+    left: 0;
+    font-size: 13px;
+    text-align: center;
+    line-height: 40px;
+    transition-duration: .3s;
+    outline: none;
+  }
+  & a:hover {
+    color: #ffffff;
+  }
+}
+.main-sidebar-sm {
+  position: relative;
+  background-color: #222d32;
+  min-height: 100%;
+  padding-top: 15px;
+  width: 62px;
+  z-index: 810;
+  transition: transform .3s ease-in-out,width .3s ease-in-out;
+  & .user-panel{
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 10px;
+    &:before,
+    &:after {
+      content: " ";
+      display: table;
+    }
+    &:after {
+      clear: both;
+    }
+    & > .image {
+      color: #ffffff;
+      font-size: 18px;
+    }
+    & .nav-sidebar{
+      margin-top: 30px;
+      margin-bottom: 100px;
+      transition-duration: .3s;
+      list-style: none;
+      overflow: hidden;
+    }
+    & a{
+      padding: 0px;
+      margin: 20px 0;
+      font-size: 20px;
+      color: #ffffff;
+    }
+    & a:hover {
+      background-color: #1a2226;
+    }
+    & a:focus {
+      background-color: #1a2226;
+    }
+    & .child_menu {
+      left: 100%;
+      position: absolute;
+      top: 0;
+      width: 210px;
+      z-index: 4000;
+      background-color: rgb(34, 45, 50);
+      display: block;
+    }
+  }
+}
+
+.toggle-nav-collapse {
+  color: #ffffff;
+  background-color: #333c47;
+}
+

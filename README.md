@@ -14,6 +14,7 @@
     $ npm start
 
 # 生产环境
+
     $ npm install -g pm2
     $ gulp
     $ pm2 start app.js -i 2 -n <app name>

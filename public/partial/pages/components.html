@@ -1,0 +1,133 @@
+<div class="content-wrapper common-height">
+  <div class="row-fluid">
+    <section class="content-header" style="margin-bottom: 10px">
+      <span style="font-size: 12pt !important; font-weight: 700 !important;">
+                智能照明/
+        <small style="color: rgb(119, 119, 119)"><b>单点控制</b></small>
+      </span>
+    </section>
+    <section class="content panel-default" style="height: calc(100% - 52px);">
+      <div class="row">
+        <!--左侧-->
+        <div class="col-md-2">
+          <!--树-->
+          <div class="form-group">
+            <label for="input-select-node" class="sr-only">Search Tree:</label>
+            <input type="input" class="form-control" id="input-select-node"
+                   style="font-size: 10pt;border-radius: 4px;color:#777777"
+                   placeholder="搜索"
+                   value="">
+          </div>
+          <div>
+            <!--<h2>Tree</h2>-->
+            <div id="tree" class="box box-primary section-container-left"
+                 style="border-top-color:#d73925;font-size: 10pt;overflow: auto;word-wrap: break-word"></div>
+          </div>
+          <div class="col-xs-4">
+            <!--<h2>Events</h2>-->
+            <div id="selectable-output"></div>
+          </div>
+        </div>
+
+        <!--右侧-->
+        <div class="col-md-10">
+          <div class="box box-primary section-container-right" style="border-top-color:#d73925">
+            <div class="panel-heading form-inline" style="padding-bottom: 0px">
+              <div class="row">
+                <div class="col-md-4">
+                  <!--拉取设备-->
+                  <label style="font-size: 15px; padding: 9px; border-radius: 4px">设备类型:</label>
+                  <select class="form-control" ng-model="typeCode"
+                          style="border-radius: 4px;width: 170px;font-size: 10pt;"
+                          ng-change="selectDevice(typeCode)"
+                          ng-options="t.typeCode as t.typeName for t in deviceTypeList">
+                  </select>
+                </div>
+                <div class="col-md-4" style="padding-top:4px;">
+                  <input type="text" placeholder="设备名称" ng-model="searchedName" class="form-control"/>
+                  <button class="btn btn-info" ng-click="initTableByDeviceName();">
+                    搜索
+                  </button>
+                </div>
+                <div class="col-md-4" style="padding-top: 6px">
+                  <button type="button" class="btn btn-default btn-sm"
+                          ng-click="areaAllOpen()">区域全开
+                  </button>
+                  <button type="button" class="btn btn-default btn-sm"
+                          ng-click="areaAllClose()">区域全关
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!--设备列表-->
+            <div class="scrollBar">
+              <div class="col-md-12" style="padding: 0">
+                <table id="example2" class="table table-bordered table-striped dataTable" resizeable mode="resizeMode"
+                       style="margin: 0;table-layout:fixed;font-size: 10pt;"
+                       data-show-columns="true">
+                  <thead>
+                  <tr role="row">
+                    <th width="20%" style="white-space:nowrap">设备名称</th>
+                    <th width="20%" style="white-space:nowrap">所在区域</th>
+                    <th width="20%" style="white-space:nowrap">实时状态</th>
+                    <th width="20%" style="white-space:nowrap">更新时间</th>
+                    <th width="20%" style="white-space:nowrap">控制命令</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr ng-repeat="dataDetailed in datas">
+                    <td title="{{dataDetailed.virtualDeviceName}}" ng-bind="dataDetailed.virtualDeviceName"
+                        style="word-wrap:break-word;white-space:nowrap;text-overflow:ellipsis;overflow:hidden">
+                    </td>
+                    <td title="{{dataDetailed.areaName}}" ng-bind="dataDetailed.areaName"
+                        style="word-wrap:break-word;white-space:nowrap;text-overflow:ellipsis;overflow:hidden">
+                    </td>
+                    <td>{{onOff[dataDetailed.channelParam]}}</td>
+                    <td title="{{dataDetailed.updateTime}}" ng-bind="dataDetailed.updateTime"
+                        style="word-wrap:break-word;white-space:nowrap;text-overflow:ellipsis;overflow:hidden">
+                    </td>
+                    <td>
+                      <div id="buttonGroup" class="btn-group btn-group-md pull-left">
+
+                        <button id="credentials-m2m-yes-permissions-button"
+                                ng-disabled="{{ dataDetailed.typeCode === '31711040004'}} || {{(dataDetailed.typeCode).substr(0, 7) === '3171301'}} || {{(dataDetailed.typeCode).substr(0, 7) === '3172101'}} || {{(dataDetailed.typeCode).substr(0, 7) === '3174103'}}|| {{(dataDetailed.typeCode).substr(0, 7) === '3171110'}} || {{dataDetailed.typeCode === '31711040102'}} || {{dataDetailed.typeCode === '3171404001'}} || {{dataDetailed.typeCode === '3171404002'}}"
+                                ng-class="{ 'btn-info': dataDetailed.openClose}"
+                                ng-click="ctrlState(dataDetailed.typeCode,dataDetailed.gatewayDeviceKey,dataDetailed.deviceKey,dataDetailed.channel,dataDetailed,'true')"
+                                class="btn btn-default btn-xs"><a
+                          style="color: #FFFFFF; font-size: 8pt"><b>开</b></a>
+                        </button>
+                        <button id="credentials-m2m-no-permissions-button"
+                                ng-disabled="{{ dataDetailed.typeCode === '31711040004'}} || {{(dataDetailed.typeCode).substr(0, 7) === '3171301'}} || {{(dataDetailed.typeCode).substr(0, 7) === '3172101'}} || {{(dataDetailed.typeCode).substr(0, 7) === '3174103'}}|| {{(dataDetailed.typeCode).substr(0, 7) === '3171110'}} || {{dataDetailed.typeCode === '31711040102'}} || {{dataDetailed.typeCode === '3171404001'}} || {{dataDetailed.typeCode === '3171404002'}}"
+                                ng-class="{ 'btn-info': !dataDetailed.openClose}"
+                                ng-click="ctrlState(dataDetailed.typeCode,dataDetailed.gatewayDeviceKey,dataDetailed.deviceKey,dataDetailed.channel,dataDetailed,'false')"
+                                class="btn btn-default btn-xs"><a
+                          style="color: #FFFFFF; font-size: 8pt"><b>关</b></a>
+                        </button>
+                      </div>
+
+                      <button class="btn btn-info btn-sm"
+                              style="padding: 0px; width: 15%; margin-left: 5px; letter-spacing: 0px;"
+                              id="ctrlButton"
+                              ng-click="ctrlShow(dataDetailed.typeCode,dataDetailed.gatewayDeviceKey,dataDetailed.deviceKey,dataDetailed.channel)"
+                              ng-disabled="{{(dataDetailed.typeCode).substr(0,7) === '3174102'}} || {{(dataDetailed.typeCode).substr(0,7) === '3171203'}} || operator">
+                        >>
+                      </button>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div align="right">
+                <div class="text-center">
+                  <uib-pagination total-items="bigTotalItems" items-per-page="pageSizeSelect" ng-model="bigCurrentPage"
+                                  max-size="maxSize" first-text="首页" last-text="尾页" next-text="下一页" previous-text="上一页"
+                                  class="" boundary-links="true" force-ellipses="true"
+                                  ng-change="onPageClicked()"></uib-pagination>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
