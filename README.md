@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/RicoLiu/WebGL-ThreeJs.svg?branch=master)](https://travis-ci.org/RicoLiu/WebGL-ThreeJs)
 
 # Angular.js 
 
