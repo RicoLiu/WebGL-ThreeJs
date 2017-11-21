@@ -1,20 +1,20 @@
 
-var gulp = require("gulp");
-var babel = require("gulp-babel");
-var ngAnnotate = require('gulp-ng-annotate');
-var concat = require("gulp-concat");
-var uglify = require("gulp-uglify");
-var ngHtml2Js = require('gulp-ng-html2js');
-var minifyHtml = require('gulp-minify-html');
-var plumber = require('gulp-plumber');
-var karma = require('gulp-karma');
-var minifyCss = require('gulp-minify-css');
-var sourcemaps = require('gulp-sourcemaps');
-var less = require('gulp-less');
-var mocha = require('gulp-mocha');
-var webpack = require( "webpack-stream" );
+const gulp = require("gulp");
+const babel = require("gulp-babel");
+const ngAnnotate = require('gulp-ng-annotate');
+const concat = require("gulp-concat");
+const uglify = require("gulp-uglify");
+const ngHtml2Js = require('gulp-ng-html2js');
+const minifyHtml = require('gulp-minify-html');
+const plumber = require('gulp-plumber');
+const karma = require('gulp-karma');
+const minifyCss = require('gulp-minify-css');
+const sourcemaps = require('gulp-sourcemaps');
+const less = require('gulp-less');
+const mocha = require('gulp-mocha');
+const webpack = require( "webpack-stream" );
 
-var path = {
+const path = {
   js: ['./app/javascripts/**/*.js'],
   css: ['./app/stylesheets/**/*.css'],
   less: ['./app/less/**/*.less'],

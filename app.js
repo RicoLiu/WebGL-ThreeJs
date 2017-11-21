@@ -22,7 +22,8 @@ let app = module.exports = koa();
 app.keys = ['es_building', 'Front_end'];
 app.use(bodyparser());
 
-app.use(session({ store: require('koa-redis')({  }), cookie: { maxage: 60 * 60 * 1000 }, rolling: true ,ttl: 12 * 60 * 60 * 1000}));
+// session storage
+// app.use(session({ store: require('koa-redis')({  }), cookie: { maxage: 60 * 60 * 1000 }, rolling: true ,ttl: 12 * 60 * 60 * 1000}));
 // Logger
 app.use(logger());
 // Json
@@ -30,7 +31,6 @@ app.use(json());
 app.use(common.$);
 
 //node进行API转发配置
-app.use(_.post('/api/login', auth.login));
 
 // Serve static files
 app.use(serve(path.join(__dirname, 'public')));

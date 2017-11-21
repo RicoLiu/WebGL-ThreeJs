@@ -1,5 +1,5 @@
 
-app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', 'JSONFormatterConfigProvider', function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, JSONFormatterConfigProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
   // 在请求中发送 X-Requested-With 头，以向服务器声明这是一个来自xhr的请求
   $httpProvider.defaults.headers.common = {
     'X-Requested-With': 'XMLHttpRequest'
@@ -17,7 +17,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpP
   //var expireDate = currentDate.setDate(currentDate.getDate()+1);
   //$cookiesProvider.defaults.expires = expireDate;
   //$cookiesProvider.defaults.path = '/';
-  JSONFormatterConfigProvider.hoverPreviewEnabled = true;
+  // JSONFormatterConfigProvider.hoverPreviewEnabled = true;
   window.httpProvider = $httpProvider;
   $httpProvider.defaults.headers.common.pageSize = 1000;
   $httpProvider.defaults.headers.common.pageNum = 1;
@@ -25,11 +25,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpP
   $httpProvider.defaults.headers.common.Pragma = "no-cache";
   $httpProvider.defaults.headers.common["If-Modified-Since"] = "0";
   $urlRouterProvider
-    .otherwise('/login');
+    .otherwise('/dashboard');
   //路由配置
   $stateProvider
     .state('login',{
-      url: '/login',
+      url: '/dashboard',
       views: {
         'root@': {
           templateUrl: "/partial/main/login.html",
@@ -55,7 +55,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpP
       }
     })
     .state('main.device',{
-      url: '/device',
+      url: '/index',
       views: {
         'content': {
           templateUrl: "/partial/pages/components.html",

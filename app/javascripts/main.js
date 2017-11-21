@@ -1,5 +1,5 @@
 
-var app = angular.module('app', [ 'ui.router', 'jsonFormatter', 'ui.bootstrap', 'ngBootstrap', 'ngCookies', 'toaster' ]);
+var app = angular.module('app', [ 'ui.router' ]);
 
 
 app.controller('rootCtrl', ['$scope', function ($scope) {}]);
