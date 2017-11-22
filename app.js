@@ -13,8 +13,8 @@ let bodyparser = require('koa-bodyparser');
 let koa = require('koa');
 let path = require('path');
 
-const common = require('./controllers/main');
-let auth = require('./controllers/login');
+// const common = require('./controllers/main');
+// let auth = require('./controllers/login');
 
 
 let app = module.exports = koa();
@@ -28,7 +28,7 @@ app.use(bodyparser());
 app.use(logger());
 // Json
 app.use(json());
-app.use(common.$);
+// app.use(common.$);
 
 //node进行API转发配置
 

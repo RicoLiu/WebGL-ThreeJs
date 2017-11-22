@@ -37,8 +37,8 @@ app.controller('loginCtrl', ['$scope',  '$rootScope', '$state', '$http', functio
       canvas.height / 2,
       canvas.width / 2
     );
-    gradient.addColorStop( 0.1, 'rgba(210,210,210,1)' );
-    gradient.addColorStop( 1, 'rgba(255,255,255,1)' );
+    // gradient.addColorStop( 0.1, 'rgba(210,210,210,1)' );
+    // gradient.addColorStop( 1, 'rgba(255,255,255,1)' );
     context.fillStyle = gradient;
     context.fillRect( 0, 0, canvas.width, canvas.height );
     var texture = new THREE.CanvasTexture( canvas );
